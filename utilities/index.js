@@ -140,4 +140,20 @@ Util.checkJWTToken = (req, res, next) => {
   }
  }
 
+ Util.authorize = (req, res, next) => {
+  if (!res.locals.loggedin) {
+    req.flash("notice", "Please log in.")
+    return res.redirect("/account/login")
+  }
+
+  const accountType = res.locals.accountData.account_type
+
+  if (accountType === "Employee" || accountType === "Admin") {
+    next()
+  } else {
+    req.flash("notice", "You do not have permission to access that page.")
+    return res.redirect("/account/login")
+  }
+}
+
 module.exports = Util

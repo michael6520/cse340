@@ -233,12 +233,41 @@ footer {
   margin-bottom: 20px;
 }
 
-.management-list li a {
+.management-list li a, .manage-links {
   text-decoration: none;
   color: white;
 }
 
-.management-list li a:hover {
+.management-list li a:hover, .manage-links:hover {
+  text-decoration: underline;
+}
+
+h2, h3, .managep, .manage-links {
+  margin-left: 30px;
+}
+
+.manage-select select {
+  background-color: rgb(24, 24, 24);
+  color: rgb(224, 224, 224);
+  border: 2px solid rgb(224, 224, 224);
+  border-radius: 8px;
+  margin-left: 30px;
+  font-size: 18px;
+}
+
+.manage-table {
+  margin-left: 30px;
+  margin-top: 10px;
+}
+
+.manage-table a {
+  color: rgb(224, 224, 224);
+  text-decoration: none;
+  margin-left: 5px;
+  margin-top: 10px;
+}
+
+.manage-table a:hover {
   text-decoration: underline;
 }
 

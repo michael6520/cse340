@@ -21,5 +21,28 @@ router.post(
     regValidate.checkRegData,
     utilities.handleErrors(accountController.registerAccount)
 )
+router.get(
+    "/update/:account_id",
+    utilities.checkLogin,
+    utilities.handleErrors(accountController.buildUpdateAccount)
+)
+router.post(
+    "/update",
+    utilities.checkLogin,
+    regValidate.updateAccountRules(),
+    regValidate.checkUpdateData,
+    utilities.handleErrors(accountController.updateAccount)
+)
+router.post(
+    "/change-password",
+    utilities.checkLogin,
+    regValidate.passwordRules(),
+    regValidate.checkPassword,
+    utilities.handleErrors(accountController.changePassword)
+)
+router.get("/logout", (req, res) => {
+  res.clearCookie("jwt")
+  res.redirect("/")
+})
 
 module.exports = router;
