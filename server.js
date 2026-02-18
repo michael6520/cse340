@@ -12,6 +12,7 @@ const expressLayouts = require("express-ejs-layouts")
 const static = require("./routes/static")
 const inventoryRoute = require("./routes/inventoryRoute")
 const accountRoute = require('./routes/accountRoute')
+const testdriveRoute = require("./routes/testdriveRoute")
 const baseController = require("./controllers/baseController")
 const utilities = require("./utilities/")
 const session = require("express-session")
@@ -66,6 +67,7 @@ app.use("/inv", utilities.handleErrors(inventoryRoute))
 // Account routes
 app.use("/account", utilities.handleErrors(accountRoute))
 // File Not Found Route - must be last route in list
+app.use("/testdrive", utilities.handleErrors(testdriveRoute))
 app.use(async (req, res, next) => {
   next({status: 404, message: 'Sorry, we appear to have lost that page.'})
 })

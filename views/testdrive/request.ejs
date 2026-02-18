@@ -1,0 +1,21 @@
+<% if (title) { %>
+<h1><%= title %></h1>
+<% } else {
+  res.redirect('/')
+} %>
+
+<%- messages() %>
+
+<form class="form" id="testdrive" action="/testdrive/request" method="post">
+  
+  <%- models %>
+
+  <label for="requested_date">Date</label>
+  <input type="date" id="requested_date" name="requested_date" required value="<%= locals.requested_date %>">
+    
+  <label for="requested_time">Time</label>
+  <input type="time" id="requested_time" name="requested_time" required value="<%= locals.requested_time %>">
+
+  <button type="submit">Request Test Drive</button>
+
+</form>
